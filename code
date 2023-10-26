@@ -1,0 +1,24 @@
+// We are going to write a code which find 1st missing number from the series in this code i have missed 5 from series of 1-10 
+
+function findMissingInteger(arr, N) {
+    const presentIntegers = [];
+    
+    for (let i = 1; i <= N; i++) {
+        if (arr.includes(i)) {
+            presentIntegers.push(i);
+        }
+    }
+
+    for (let i = 1; i <= N; i++) {
+        if (!presentIntegers.includes(i)) {
+            return i;
+        }
+    }
+
+    return -1; 
+}
+
+const N = 10;
+const arr = [1, 2, 3, 4 , 6, 7, 8, 9, 10];
+const missing = findMissingInteger(arr, N);
+console.log(`The missing integer is: ${missing}`);
